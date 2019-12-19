@@ -15,64 +15,34 @@ export default class App extends React.Component {
    handlePasswordChanges(event) {
       this.setState({ password: event.target.value});
    }
-   render() {
-     let pic = {
-     uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-   };
-       return (
-        <div>
-            <header>
-               <h1> React Strength Indicator Component </h1>
-            </header>
 
-                <PasswordInput
-                value={this.state.password}
+   render() {
+     const { password } = this.state;
+       return (
+         <View style = {styles.container}>
+            <View>
+            <Input
+                editable
+                style={{ height: 40, width: 200, borderColor: 'black', borderWidth: 1 }}
                 placeholder='Type your password'
                 handleChanges={this.handlePasswordChanges}
-                />
-
-         </div>
+                value={this.props.password}
+                type = "password"
+              />
+            </View>
+            <View >
+            <strong> Password strength : </strong>
+            </View>
+        </View>
    );
    }
 }
-
+  //    <input autoComplete="off" type="password" onChange={e => this.setState({ password: e.target.value })} />
+  //  <PasswordInput password={password} />
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 40,
-    paddingBottom: 40,
-    fontWeight: "bold"
-    },
   container: {
-    flex: 1,
-    alignItems: "center",
-    flexDirection: "column",
-    marginTop: 150
+    width : "300px",
+    alignItems: "center"
+  },
 
-  },
-  grid: {
-    flexDirection: "row",
-  },
-  button: {
-    backgroundColor: '#00aeef',
-    borderColor: 'red',
-    borderWidth: 5,
-    borderRadius: 15
-   },
-    loginScreenButton:{
-    marginRight:40,
-    marginLeft:40,
-    marginTop:10,
-    paddingTop:10,
-    paddingBottom:10,
-    backgroundColor:'grey',
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff'
-  },
-  loginText:{
-    color:'#fff',
-    textAlign:'center',
-    paddingLeft : 10,
-    paddingRight : 10
-}
 })

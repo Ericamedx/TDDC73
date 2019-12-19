@@ -11,7 +11,7 @@ export default function PasswordInput(props){
   return (
     <input
       type = 'password'
-      //value = (props.value) funkar inte om denna är med? 
+      //value = (props.value)
       className = 'password-input' />
   )
 }

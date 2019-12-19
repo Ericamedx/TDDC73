@@ -1,32 +1,78 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-//import PasswordInput from './Components/password';
+import {  Text, View, Image, Button, StyleSheet, Alert, TouchableOpacity, TextInput } from 'react-native';
+import PasswordInput from './Components/password';
 
-class App extends React.Component {
-/*
+export default class App extends React.Component {
+
   constructor() {
       super();
       this.state = {
          password: ''
       };
       this.handlePasswordChanges = this.handlePasswordChanges.bind(this);
-}
+      }
+
    handlePasswordChanges(event) {
       this.setState({ password: event.target.value});
-   }*/
+   }
    render() {
-      //  <div>
-            //<header>
+     let pic = {
+     uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+   };
+       return (
+        <div>
+            <header>
                <h1> React Strength Indicator Component </h1>
-            //</header>
-          //  <p>
-          //  <PasswordInput
-            //      value={this.state.password}
-            //    placeholder='Type your password'
-            //      handleChanges={this.handlePasswordChanges}
-            //   />
-          //  </p>
-      //   </div>
+            </header>
+
+                <PasswordInput
+                value={this.state.password}
+                placeholder='Type your password'
+                handleChanges={this.handlePasswordChanges}
+                />
+
+         </div>
+   );
    }
 }
-export default App;
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 40,
+    paddingBottom: 40,
+    fontWeight: "bold"
+    },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "column",
+    marginTop: 150
+
+  },
+  grid: {
+    flexDirection: "row",
+  },
+  button: {
+    backgroundColor: '#00aeef',
+    borderColor: 'red',
+    borderWidth: 5,
+    borderRadius: 15
+   },
+    loginScreenButton:{
+    marginRight:40,
+    marginLeft:40,
+    marginTop:10,
+    paddingTop:10,
+    paddingBottom:10,
+    backgroundColor:'grey',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff'
+  },
+  loginText:{
+    color:'#fff',
+    textAlign:'center',
+    paddingLeft : 10,
+    paddingRight : 10
+}
+})

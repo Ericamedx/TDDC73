@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  Text, View, Image, Button, StyleSheet, Alert, TouchableOpacity, TextInput } from 'react-native';
+import {  Text, View, Image, Button, StyleSheet, Alert, TouchableOpacity ,TextInput } from 'react-native';
 import PasswordInput from './Components/password';
 
 export default class App extends React.Component {
@@ -10,6 +10,7 @@ export default class App extends React.Component {
          password: ''
       };
       this.handlePasswordChanges = this.handlePasswordChanges.bind(this);
+
       }
 
    handlePasswordChanges(event) {
@@ -17,31 +18,29 @@ export default class App extends React.Component {
    }
 
    render() {
-     const { password } = this.state;
+    const { password } = this.state;
        return (
+         <Text>
          <View style = {styles.container}>
             <View>
-            <Input
-                editable
-                style={{ height: 40, width: 200, borderColor: 'black', borderWidth: 1 }}
-                placeholder='Type your password'
-                handleChanges={this.handlePasswordChanges}
-                value={this.props.password}
-                type = "password"
-              />
+            <Text>
+             <h1> Password strength meter </h1>
+             </Text>
             </View>
             <View >
-            <strong> Password strength : </strong>
+            <PasswordInput
+                 value={this.props.password}
+                 handleChanges={this.handlePasswordChanges}
+              />
             </View>
         </View>
+        </Text>
    );
    }
 }
-  //    <input autoComplete="off" type="password" onChange={e => this.setState({ password: e.target.value })} />
-  //  <PasswordInput password={password} />
 const styles = StyleSheet.create({
   container: {
-    width : "300px",
+    width : "500px",
     alignItems: "center"
   },
 
